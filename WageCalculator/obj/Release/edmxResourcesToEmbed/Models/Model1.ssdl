@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="StaffCalculatorModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="StaffMember">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar(max)" Nullable="false" />
+    <Property Name="HourlyRate" Type="float" Nullable="false" />
+    <Property Name="MonHours" Type="float" Nullable="false" />
+    <Property Name="MonPay" Type="float" StoreGeneratedPattern="Computed" Nullable="false" />
+    <Property Name="TueHours" Type="float" Nullable="false" />
+    <Property Name="TuePay" Type="float" StoreGeneratedPattern="Computed" Nullable="false" />
+    <Property Name="WedHours" Type="float" Nullable="false" />
+    <Property Name="WedPay" Type="float" StoreGeneratedPattern="Computed" Nullable="false" />
+    <Property Name="ThuHours" Type="float" Nullable="false" />
+    <Property Name="ThuPay" Type="float" StoreGeneratedPattern="Computed" Nullable="false" />
+    <Property Name="FriHours" Type="float" Nullable="false" />
+    <Property Name="FriPay" Type="float" StoreGeneratedPattern="Computed" Nullable="false" />
+    <Property Name="SatHours" Type="float" Nullable="false" />
+    <Property Name="SatPay" Type="float" StoreGeneratedPattern="Computed" Nullable="false" />
+    <Property Name="SunHours" Type="float" Nullable="false" />
+    <Property Name="SunPay" Type="float" StoreGeneratedPattern="Computed" Nullable="false" />
+    <Property Name="TotalHours" Type="float" StoreGeneratedPattern="Computed" Nullable="false" />
+    <Property Name="TotalPay" Type="float" StoreGeneratedPattern="Computed" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="StaffCalculatorModelStoreContainer">
+    <EntitySet Name="StaffMember" EntityType="Self.StaffMember" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

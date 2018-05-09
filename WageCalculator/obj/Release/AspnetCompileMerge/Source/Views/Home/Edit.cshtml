@@ -1,0 +1,140 @@
+﻿@model WageCalculator.Models.StaffMember
+
+@{
+    ViewBag.Title = "Edit - ";
+}
+<h2>Edit - @Html.DisplayFor(Model => Model.Name)</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <h4></h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.Id)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.HourlyRate, "Hourly Rate (£ p/h)", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.HourlyRate, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.HourlyRate, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.MonHours, "Hours for Monday", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.MonHours, new { htmlAttributes = new { @class = "form-control", id = "mon" } })
+            @Html.ValidationMessageFor(model => model.MonHours, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.TueHours, "Hours for Tuesday", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.TueHours, new { htmlAttributes = new { @class = "form-control", id = "tue" } })
+            @Html.ValidationMessageFor(model => model.TueHours, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.WedHours, "Hours for Wednesday", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.WedHours, new { htmlAttributes = new { @class = "form-control", id = "wed" } })
+            @Html.ValidationMessageFor(model => model.WedHours, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ThuHours, "Hours for Thursday", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.ThuHours, new { htmlAttributes = new { @class = "form-control", id = "thu" } })
+            @Html.ValidationMessageFor(model => model.ThuHours, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.FriHours, "Hours for Friday", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.FriHours, new { htmlAttributes = new { @class = "form-control", id = "fri" } })
+            @Html.ValidationMessageFor(model => model.FriHours, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.SatHours, "Hours for Saturday", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.SatHours, new { htmlAttributes = new { @class = "form-control", id = "sat" } })
+            @Html.ValidationMessageFor(model => model.SatHours, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.SunHours, "Hours for Sunday", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.SunHours, new { htmlAttributes = new { @class = "form-control", id = "sun" } })
+            @Html.ValidationMessageFor(model => model.SunHours, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Save Changes" class="btn btn-default" onmouseover="checkEmpty()" />
+        </div>
+    </div>
+</div>
+}
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+    <script>
+        //Disable pressing enter to send form. need user to click to fill empty fields
+        window.addEventListener('keydown', function (e) {
+            if (e.keyIdentifier == 'U+000A' || e.keyIdentifier == 'Enter' || e.keyCode == 13) {
+                if (e.target.nodeName == 'INPUT' && e.target.type == 'text') {
+                    e.preventDefault(); return false;
+                }
+            }
+        }, true);
+
+        //hover over complete button check empty hours fields and set to zero
+        function checkEmpty() {
+            if (document.getElementById("mon").value.length == 0) {
+                document.getElementById("mon").value = 0;
+            }
+            if (document.getElementById("tue").value.length == 0) {
+                document.getElementById("tue").value = 0;
+            }
+            if (document.getElementById("wed").value.length == 0) {
+                document.getElementById("wed").value = 0;
+            }
+            if (document.getElementById("thu").value.length == 0) {
+                document.getElementById("thu").value = 0;
+            }
+            if (document.getElementById("fri").value.length == 0) {
+                document.getElementById("fri").value = 0;
+            }
+            if (document.getElementById("sat").value.length == 0) {
+                document.getElementById("sat").value = 0;
+            }
+            if (document.getElementById("sun").value.length == 0) {
+                document.getElementById("sun").value = 0;
+            }
+        }
+    </script>
+
+@section Scripts{
+@Scripts.Render("~/bundles/jqueryval")
+}

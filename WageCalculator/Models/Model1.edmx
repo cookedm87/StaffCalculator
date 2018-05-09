@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="StaffCalculatorModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="StaffMember">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar(max)" Nullable="false" />
+          <Property Name="HourlyRate" Type="float" Nullable="false" />
+          <Property Name="MonHours" Type="float" Nullable="false" />
+          <Property Name="MonPay" Type="float" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="TueHours" Type="float" Nullable="false" />
+          <Property Name="TuePay" Type="float" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="WedHours" Type="float" Nullable="false" />
+          <Property Name="WedPay" Type="float" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="ThuHours" Type="float" Nullable="false" />
+          <Property Name="ThuPay" Type="float" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="FriHours" Type="float" Nullable="false" />
+          <Property Name="FriPay" Type="float" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="SatHours" Type="float" Nullable="false" />
+          <Property Name="SatPay" Type="float" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="SunHours" Type="float" Nullable="false" />
+          <Property Name="SunPay" Type="float" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="TotalHours" Type="float" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="TotalPay" Type="float" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="StaffCalculatorModelStoreContainer">
+          <EntitySet Name="StaffMember" EntityType="Self.StaffMember" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="StaffCalculatorModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="StaffMember">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="HourlyRate" Type="Double" Nullable="false" />
+          <Property Name="MonHours" Type="Double" Nullable="false" />
+          <Property Name="MonPay" Type="Double" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="TueHours" Type="Double" Nullable="false" />
+          <Property Name="TuePay" Type="Double" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="WedHours" Type="Double" Nullable="false" />
+          <Property Name="WedPay" Type="Double" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="ThuHours" Type="Double" Nullable="false" />
+          <Property Name="ThuPay" Type="Double" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="FriHours" Type="Double" Nullable="false" />
+          <Property Name="FriPay" Type="Double" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="SatHours" Type="Double" Nullable="false" />
+          <Property Name="SatPay" Type="Double" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="SunHours" Type="Double" Nullable="false" />
+          <Property Name="SunPay" Type="Double" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="TotalHours" Type="Double" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="TotalPay" Type="Double" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityContainer Name="StaffCalculatorEntities3" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="StaffMembers" EntityType="Self.StaffMember" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="StaffCalculatorModelStoreContainer" CdmEntityContainer="StaffCalculatorEntities3">
+          <EntitySetMapping Name="StaffMembers">
+            <EntityTypeMapping TypeName="StaffCalculatorModel.StaffMember">
+              <MappingFragment StoreEntitySet="StaffMember">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="HourlyRate" ColumnName="HourlyRate" />
+                <ScalarProperty Name="MonHours" ColumnName="MonHours" />
+                <ScalarProperty Name="MonPay" ColumnName="MonPay" />
+                <ScalarProperty Name="TueHours" ColumnName="TueHours" />
+                <ScalarProperty Name="TuePay" ColumnName="TuePay" />
+                <ScalarProperty Name="WedHours" ColumnName="WedHours" />
+                <ScalarProperty Name="WedPay" ColumnName="WedPay" />
+                <ScalarProperty Name="ThuHours" ColumnName="ThuHours" />
+                <ScalarProperty Name="ThuPay" ColumnName="ThuPay" />
+                <ScalarProperty Name="FriHours" ColumnName="FriHours" />
+                <ScalarProperty Name="FriPay" ColumnName="FriPay" />
+                <ScalarProperty Name="SatHours" ColumnName="SatHours" />
+                <ScalarProperty Name="SatPay" ColumnName="SatPay" />
+                <ScalarProperty Name="SunHours" ColumnName="SunHours" />
+                <ScalarProperty Name="SunPay" ColumnName="SunPay" />
+                <ScalarProperty Name="TotalHours" ColumnName="TotalHours" />
+                <ScalarProperty Name="TotalPay" ColumnName="TotalPay" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

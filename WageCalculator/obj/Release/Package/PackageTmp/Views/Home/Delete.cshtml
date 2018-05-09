@@ -1,0 +1,13 @@
+﻿@model WageCalculator.Models.StaffMember
+
+@{
+    ViewBag.Title = "Delete - ";
+}
+<h2>Delete - @Html.DisplayFor(m => m.Name)</h2>
+<h3>Are you sure you want to delete this staff member?</h3>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <input type="submit" value="Delete Staff Member"/>
+}
+@Html.ActionLink("Back to List", "Index")

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="StaffCalculatorModelStoreContainer" CdmEntityContainer="StaffCalculatorEntities1">
+    <EntitySetMapping Name="StaffMembers">
+      <EntityTypeMapping TypeName="StaffCalculatorModel.StaffMember">
+        <MappingFragment StoreEntitySet="StaffMember">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="HourlyRate" ColumnName="HourlyRate" />
+          <ScalarProperty Name="MonHours" ColumnName="MonHours" />
+          <ScalarProperty Name="TueHours" ColumnName="TueHours" />
+          <ScalarProperty Name="WedHours" ColumnName="WedHours" />
+          <ScalarProperty Name="ThuHours" ColumnName="ThuHours" />
+          <ScalarProperty Name="FriHours" ColumnName="FriHours" />
+          <ScalarProperty Name="SatHours" ColumnName="SatHours" />
+          <ScalarProperty Name="SunHours" ColumnName="SunHours" />
+          <ScalarProperty Name="TotalHours" ColumnName="TotalHours" />
+          <ScalarProperty Name="TotalPay" ColumnName="TotalPay" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

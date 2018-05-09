@@ -1,0 +1,204 @@
+﻿@model IEnumerable<WageCalculator.Models.StaffMember>
+
+@{
+    ViewBag.Title = "Welcome - ";
+}
+
+
+<h1>Welcome to your staff costing calculator</h1>
+<p class="subHead">Your current rota is below</p>
+
+
+<table id="dataTable" class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayName("Hourly Rate")
+        </th>
+        <th>
+            @Html.DisplayName("Monday")
+        </th>
+        <th>
+            @Html.DisplayName("Tuesday")
+        </th>
+        <th>
+            @Html.DisplayName("Wednesday")
+        </th>
+        <th>
+            @Html.DisplayName("Thursday")
+        </th>
+        <th>
+            @Html.DisplayName("Friday")
+        </th>
+        <th>
+            @Html.DisplayName("Saturday")
+
+        </th>
+        <th>
+            @Html.DisplayName("Sunday")
+        </th>
+        <th>
+            @Html.DisplayName("Total Hours")
+        </th>
+        <th>
+            @Html.DisplayName("Total Pay")
+        </th>
+        <th>
+            <button>
+                @Html.ActionLink("Create a new staff member", "Create")
+            </button>
+        </th>
+    </tr>
+
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <label class="boldTable"> @Html.DisplayFor(modelItem => item.Name)</label>
+            </td>
+            <td>
+                £@Html.DisplayFor(modelItem => item.HourlyRate) p/h
+
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MonHours)
+
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TueHours)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WedHours)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ThuHours)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FriHours)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SatHours)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SunHours)
+            </td>
+            <td>
+                <label class="boldTable"> @Html.DisplayFor(modelItem => item.TotalHours)</label>
+            </td>
+            <td>
+                <label class="boldTable"> £@Html.DisplayFor(modelItem => item.TotalPay)</label>
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+</table>
+
+<div class="drop-downs">
+    <div class="dropDown row">
+        <div class="chartType">
+            <h3>Chart Style</h3>
+            <select id="chartType">
+                <option value="column" selected>Column</option>
+                <option value="bar">Bar</option>
+                <option value="pie">Pie</option>
+                <option value="doughnut">Doughnut</option>
+            </select>
+        </div>
+    </div>
+    <div class="dropDown row">
+        <div class="dayOfWeek">
+            <h3>Day of the week</h3>
+            <select id="dayOfWeek">
+                <option value="dataPoints" selected>Every day</option>
+                <option value="monPoints">Monday</option>
+                <option value="tuePoints">Tuesday</option>
+                <option value="wedPoints">Wednesday</option>
+                <option value="thuPoints">Thursday</option>
+                <option value="friPoints">Friday</option>
+                <option value="satPoints">Saturday</option>
+                <option value="sunPoints">Sunday</option>
+            </select>
+        </div>
+    </div>
+</div>
+<br />
+<div id="chartContainer" style="height: 450px; width: 100%;"></div>
+
+
+
+<div id="dayContainer"></div>
+<script type="text/javascript">
+    var dataPoints = [];
+    var monPoints = [];
+    var tuePoints = [];
+    var wedPoints = [];
+    var thuPoints = [];
+    var friPoints = [];
+    var satPoints = [];
+    var sunPoints = [];
+    var dayArray = [];
+
+    $.getJSON("/Home/GetStaff", function (data) {
+        obj = JSON.parse(data);
+        for (var i = 0; i < obj.length; i++) {
+            dataPoints.push({ label: obj[i].Name, y: obj[i].TotalPay });
+            monPoints.push({ label: obj[i].Name, y: obj[i].MonPay });
+            tuePoints.push({ label: obj[i].Name, y: obj[i].TuePay });
+            wedPoints.push({ label: obj[i].Name, y: obj[i].WedPay });
+            thuPoints.push({ label: obj[i].Name, y: obj[i].ThuPay });
+            friPoints.push({ label: obj[i].Name, y: obj[i].FriPay });
+            satPoints.push({ label: obj[i].Name, y: obj[i].SatPay });
+            sunPoints.push({ label: obj[i].Name, y: obj[i].SunPay });
+        }
+        var jsonData = {
+            dataPoints,monPoints,tuePoints,wedPoints,thuPoints,friPoints,satPoints,sunPoints
+        }
+        console.log(jsonData);
+        //debugger
+        var chart = new CanvasJS.Chart("chartContainer", {
+            title: {
+                text: "Total pay per staff member"
+            },
+            axisY: {
+                valueFormatString: "£#,##0.##"
+            },
+            data: [{
+                dataPoints: dataPoints,
+            }]
+        });
+        chart.render();
+
+        var chartType = document.getElementById('chartType');
+        chartType.addEventListener("change", function () {
+            chart.options.data[0].type = chartType.options[chartType.selectedIndex].value;
+            chart.render();
+        })
+
+        var dayOfWeek = document.getElementById('dayOfWeek');
+        dayOfWeek.addEventListener("change", function () {
+            chart.options.data[0].dataPoints = [];
+            var selected = dayOfWeek.options[dayOfWeek.selectedIndex].value;
+            dps = jsonData[selected];
+            console.log(dps);
+            for (var i in dps) {
+                console.log(dps[i][0]);
+                chart.options.data[0].dataPoints.push({ label: dps[i].label, y: dps[i].y })
+            }
+            chart.render();
+        }) 
+    });
+</script>
+
+
+
+
+
+
+

@@ -1,0 +1,74 @@
+﻿@model WageCalculator.Models.StaffMember
+
+@{
+    ViewBag.Title = "Details - ";
+}
+
+<h2>Details - @Html.DisplayFor(model => model.Name)</h2>
+<h3>@Html.DisplayNameFor(model => model.HourlyRate) - £@Html.DisplayFor(model => model.HourlyRate) p/h</h3>
+
+<table id="dataTable" class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Monday")
+        </th>
+        <th>
+            @Html.DisplayName("Tuesday")
+        </th>
+        <th>
+            @Html.DisplayName("Wednesday")
+        </th>
+        <th>
+            @Html.DisplayName("Thursday")
+        </th>
+        <th>
+            @Html.DisplayName("Friday")
+        </th>
+        <th>
+            @Html.DisplayName("Saturday")
+        </th>
+        <th>
+            @Html.DisplayName("Sunday")
+        </th>
+        <th>
+            @Html.DisplayName("Total Hours")
+        </th>
+        <th>
+            @Html.DisplayName("Total Pay")
+        </th>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayFor(model => model.MonHours) Hours
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.TueHours) Hours
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.WedHours) Hours
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.ThuHours) Hours
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.FriHours) Hours
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.SatHours) Hours
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.SunHours) Hours
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.TotalHours) Hours
+        </td>
+        <td>
+            £@Html.DisplayFor(model => model.TotalPay)
+        </td>
+    </tr>
+</table>
+
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>

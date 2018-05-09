@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="StaffCalculatorModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="StaffMember">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="HourlyRate" Type="Double" Nullable="false" />
+    <Property Name="MonHours" Type="Double" Nullable="false" />
+    <Property Name="MonPay" Type="Double" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="TueHours" Type="Double" Nullable="false" />
+    <Property Name="TuePay" Type="Double" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="WedHours" Type="Double" Nullable="false" />
+    <Property Name="WedPay" Type="Double" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="ThuHours" Type="Double" Nullable="false" />
+    <Property Name="ThuPay" Type="Double" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="FriHours" Type="Double" Nullable="false" />
+    <Property Name="FriPay" Type="Double" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="SatHours" Type="Double" Nullable="false" />
+    <Property Name="SatPay" Type="Double" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="SunHours" Type="Double" Nullable="false" />
+    <Property Name="SunPay" Type="Double" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="TotalHours" Type="Double" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="TotalPay" Type="Double" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityContainer Name="StaffCalculatorEntities3" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="StaffMembers" EntityType="Self.StaffMember" />
+  </EntityContainer>
+</Schema>

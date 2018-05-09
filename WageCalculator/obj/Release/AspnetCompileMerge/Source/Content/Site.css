@@ -1,0 +1,210 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+/* Dropdown Button */
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+    /* Links inside the dropdown */
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+        /* Change color of dropdown links on hover */
+        .dropdown-content a:hover {
+            background-color: #ddd
+        }
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+.box {
+    padding: 20px;
+    display: none;
+    margin-top: 20px;
+    border: 1px solid #000;
+}
+
+    .box img {
+        float: right;
+        width: 150px;
+        height: 100px;
+    }
+
+.pie {
+    background: #ff0000;
+}
+
+.bar {
+    background: #00ff00;
+}
+
+.other {
+    background: #0000ff;
+}
+
+th{
+    font-weight: 800;
+}
+.boldTable{
+    font-weight: 900;
+}
+.navbar-inverse {
+    background-color: #4abdac;
+    border-color: #116466;
+}
+body {
+    font-family: "Ubuntu", sans-serif;
+}
+.navbar-inverse .navbar-nav > li > a {
+    color: #ffffff;
+}
+.navbar-inverse .navbar-brand {
+    color: #ffffff;
+}
+.navbar{
+    border-bottom: 2px solid;
+}
+.nav li:hover {
+    color: #f7b733;
+}
+.navbar-default .navbar-link:hover {
+    color: #f7b733;
+}
+.navbar-default .navbar-link:hover {
+    color: #f7b733;
+}
+@media (max-width: 767px) {
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+        color: #f7b733;
+    }
+
+        .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+        .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+            color: #f7b733;
+            background-color: transparent;
+        }
+
+    .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+    .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+    .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+        color: #f7b733;
+        background-color: #e7e7e7;
+    }
+
+    .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a,
+    .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a:hover,
+    .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a:focus {
+        color: #77bba9;
+        background-color: transparent;
+    }
+}
+h1 {
+    font-family: "Ubuntu", sans-serif;
+    text-align: center;
+}
+.editCol {
+    background-color: #4abdac;
+}
+.infoCol {
+    background-color: #d9b08c;
+}
+.delCol {
+    background-color: #9F0000;
+}
+td button {
+    border: none;
+    color: #2c3531;
+}
+.table{
+    text-align: center;
+}
+th{
+    text-align: center;
+}
+.subHead{
+    text-align: center;
+}
+#dataTable{
+    border-collapse: collapse;
+}
+#dataTable td, #dataTable th{
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+#dataTable tr:nth-child(even){
+    background-color: #f2f2f2;
+}
+
+#dataTable tr:hover {
+    background-color: #ddd;
+}
+
+#dataTable th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: #4abdac;
+    color: white;
+}
+
+.dayContainer {
+    height: 360px;
+    width: 100%;
+}
+.drop-downs{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
